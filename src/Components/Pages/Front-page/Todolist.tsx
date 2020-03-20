@@ -19,6 +19,10 @@ export default function Todolist() {
     );
   };
 
+  const handleDeleteClick = (i: number) => {
+    setTodolist(todolist.filter((todo, index) => i !== index));
+  };
+
   const todolistHtml = todolist.map((todo, i) => {
     return (
       <li key={i}>
@@ -30,9 +34,16 @@ export default function Todolist() {
             handleCheckboxClick(event.target.checked, i);
           }}
         />
+        <span
+          style={{ marginLeft: 10, color: 'red' }}
+          onClick={() => handleDeleteClick(i)}
+        >
+          X
+        </span>
       </li>
     );
   });
+
   return (
     <div>
       <h3>Todolist</h3>
