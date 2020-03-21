@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Name from './Name';
-import Todo from './Todo';
+import AddTodo from './AddTodo';
 import Todolist from './Todolist';
 
 export default function Frontpage() {
   return (
     <div>
       <Name />
-      <Todo />
+      <AddTodo />
       <Todolist />
     </div>
   );

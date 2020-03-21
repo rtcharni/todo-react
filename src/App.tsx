@@ -1,12 +1,43 @@
-import React from "react";
-import Frontpage from "./Components/Pages/Front-page/Frontpage";
-import "./App.css";
+import React, { useState } from 'react';
+import Frontpage from './components/pages/Front-page/Frontpage';
+import './App.css';
+import { TodosContext, initialTodos } from './context/todos-context';
 
 function App() {
+  const [todosStore, setTodosStore] = useState(initialTodos);
+
+  const addTodo = (todo: string, completed: boolean) => {
+    setTodosStore({
+      ...todosStore,
+      todos: [...todosStore.todos, { name: todo, completed }]
+    });
+  };
+  const deleteTodo = (index: number) => {
+    setTodosStore({
+      ...todosStore,
+      todos: todosStore.todos.filter((todo, i) => i !== index)
+    });
+  };
+  const toggleTodoCompleted = (index: number) => {
+    const newTodos = [...todosStore.todos];
+    newTodos[index].completed = !newTodos[index].completed;
+    setTodosStore({
+      ...todosStore,
+      todos: newTodos
+    });
+  };
+
   return (
-    <div className="App">
+    <TodosContext.Provider
+      value={{
+        todos: todosStore.todos,
+        addTodo,
+        deleteTodo,
+        toggleTodoCompleted
+      }}
+    >
       <Frontpage />
-    </div>
+    </TodosContext.Provider>
   );
 }
 
