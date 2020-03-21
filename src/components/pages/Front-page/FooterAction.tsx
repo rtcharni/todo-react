@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TodosContext } from '../../../context/todos-context';
 
 export default function FooterAction() {
-  return <div>Show latest action here and time when happened</div>;
+  const todosContext = useContext(TodosContext);
+
+  return (
+    <div style={{ marginTop: 100 }}>
+      <span>Your latest todo action is: {todosContext.latestTodoAction}</span>
+    </div>
+  );
 }
