@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Frontpage from './components/pages/Front-page/Frontpage';
 import './App.css';
-import { TodosContext, initialStore } from './context/todos-context';
+import { TodosContext, initialTodoStore } from './context/todos-context';
 
 function App() {
-  const [todosStore, setTodosStore] = useState(initialStore);
+  const [todosStore, setTodosStore] = useState(initialTodoStore);
 
   const addTodo = (todo: string, completed: boolean) => {
     setTodosStore({

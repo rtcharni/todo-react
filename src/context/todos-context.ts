@@ -1,7 +1,7 @@
 import React from 'react';
 import { TodosContextModel } from '../models/todo.inteface';
 
-export const initialStore: TodosContextModel = {
+export const initialTodoStore: TodosContextModel = {
   todos: [
     { name: 'Go to gym', completed: false },
     { name: 'Buy food', completed: false },
@@ -16,5 +16,5 @@ export const initialStore: TodosContextModel = {
   ) => {}
 };
 
-export const TodosContext = React.createContext(initialStore);
+export const TodosContext = React.createContext(initialTodoStore);
 TodosContext.displayName = 'TodosContext';
