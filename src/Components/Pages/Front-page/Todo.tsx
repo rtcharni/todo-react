@@ -4,6 +4,7 @@ export default function Todo() {
   const [todo, setTodo] = useState('');
   const handleAddClick = () => {
     console.log(todo);
+    // Add todo via context api
   };
 
   return (
