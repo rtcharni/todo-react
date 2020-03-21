@@ -26,6 +26,14 @@ function App() {
       todos: newTodos
     });
   };
+  const changeLatestTodoAction = (
+    newAction: 'Add' | 'Delete' | 'Toggle completed' | 'None'
+  ) => {
+    setTodosStore({
+      ...todosStore,
+      latestTodoAction: newAction
+    });
+  };
 
   return (
     <TodosContext.Provider
@@ -33,7 +41,9 @@ function App() {
         todos: todosStore.todos,
         addTodo,
         deleteTodo,
-        toggleTodoCompleted
+        toggleTodoCompleted,
+        latestTodoAction: todosStore.latestTodoAction,
+        changeLatestTodoAction
       }}
     >
       <Frontpage />

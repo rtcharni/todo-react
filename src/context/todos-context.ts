@@ -9,7 +9,11 @@ export const initialTodos: TodosContextModel = {
   ],
   addTodo: (todo: string, completed: boolean) => {},
   deleteTodo: (index: number) => {},
-  toggleTodoCompleted: (index: number) => {}
+  toggleTodoCompleted: (index: number) => {},
+  latestTodoAction: 'None',
+  changeLatestTodoAction: (
+    newAction: 'Add' | 'Delete' | 'Toggle completed' | 'None'
+  ) => {}
 };
 
 export const TodosContext = React.createContext(initialTodos);
